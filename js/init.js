@@ -7,6 +7,13 @@ const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/pro
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
+function redirigirAlLogin(){
+  if (localStorage.getItem("UserLogged")) {
+  }
+  else {
+  window.location="login.html"
+}};
+
 var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
 }
@@ -40,8 +47,23 @@ var getJSONData = function(url){
     });
 }
 
+function signOut(){
+  localStorage.removeItem("UserLogged");
+  window.location="login.html";
+}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
+
 document.addEventListener("DOMContentLoaded", function(e){
+
+  let UsuarioLogueado = localStorage.getItem("UserLogged")
+  let Usuario = document.getElementById("user")
+
+  if (UsuarioLogueado) {
+    UsuarioLogueado = JSON.parse(UsuarioLogueado); //Se transforma el JSON que contiene el valor (string) ingresado por el usuario en un objeto, para poder acceder a sus atributos. 
+    Usuario.innerText += "Usuario: " + UsuarioLogueado.email;
+    Usuario.innerHTML +=`<img id="salir" src="img/LogOut.png" onclick="signOut()"></img>`
+  }
 });

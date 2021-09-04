@@ -178,3 +178,33 @@ a.custom-card:hover {
   background-color:lightseagreen;
   color:whitesmoke;
 }
+
+#salir {
+  width:20px;
+  height:20px;
+  margin-left: 10px;
+}
+
+#filtro {
+  margin-left:50px;
+}
+
+#botonFiltro {
+  font-family: 'Raleway', serif !important
+}
+
+#ordenar {
+  margin-left:50px;
+}
+
+#buscador {
+  margin-left:50px;
+}
+
+#rango-min {
+  width:149px;
+}
+
+#rango-max {
+  width:149px;
+}

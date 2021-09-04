@@ -1,3 +1,5 @@
+redirigirAlLogin ();
+
 var category = {};
 
 function showImagesGallery(array){
