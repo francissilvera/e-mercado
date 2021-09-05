@@ -14,11 +14,11 @@ function sortProductos (criterio, array) {
 
     if (criterio == 1) { //Criterio de ordenamiento 1: los elementos del array se ordenan de forma ascendente en función del precio (product.cost).
         result = array.sort(
-            function (a,b) { //Función de comparación: recibe dos elementos del array como parámetros. Va recorriendo el array comparando pares de elementos entre sí y devolviendo el valor correspondiente (1,-1 o 0, según lo que hayamos determinado como criterio de ordenamiento).
+            function (a,b) { //Función de comparación: recibe dos elementos del array como parámetros. Va recorriendo el array comparando pares de elementos entre sí y devolviendo el valor correspondiente (1,-1 o 0) según lo que hayamos determinado como criterio de ordenamiento.
                 if (a.cost > b.cost) { 
                     return -1;
                 }
-                if (a.cost > b.cost) {
+                if (a.cost < b.cost) {
                     return 1; 
             }
             return 0;
