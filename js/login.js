@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         if (camposCompletos) {
             localStorage.setItem("UserLogged", JSON.stringify({email:inputEmail.value})); //Al valor contenido en el input "email" (lo que el usuario escribió en el campo del email) se lo transforma en un JSON para poder guardarlo como un string. En LocalStorage se le da un nombre ("User-Logged") y se guarda el JSON como su valor (mediante el método "setItem" de localStorage).
-            window.location = "inicio.html";
+            window.location = "index.html";
         }
         else {
             alert("¡Debes ingresar todos tus datos!")
