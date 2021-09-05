@@ -12,7 +12,7 @@ var maxCost;
 function sortProductos (criterio, array) { 
     let result = [];
 
-    if (criterio == 1) { //Criterio de ordenamiento 1: los elementos del array se ordenan de forma ascendente en función del precio (product.cost).
+    if (criterio == 1) { //Criterio de ordenamiento 1: los elementos del array se ordenan de forma descendente en función del precio (product.cost).
         result = array.sort(
             function (a,b) { //Función de comparación: recibe dos elementos del array como parámetros. Va recorriendo el array comparando pares de elementos entre sí y devolviendo el valor correspondiente (1,-1 o 0) según lo que hayamos determinado como criterio de ordenamiento.
                 if (a.cost > b.cost) { 
@@ -25,7 +25,7 @@ function sortProductos (criterio, array) {
     });
 }
 
-    else if (criterio == 2) { //Criterio de ordenamiento 2: los elementos del array se ordenan de forma descendente en función del precio (product.cost).
+    else if (criterio == 2) { //Criterio de ordenamiento 2: los elementos del array se ordenan de forma ascendente en función del precio (product.cost).
         result = array.sort(
             function (a,b) {
                 if (a.cost > b.cost) {
@@ -105,21 +105,21 @@ document.addEventListener("DOMContentLoaded", function (e) {
     )
 });
 
-document.getElementById("ascendentePrecio").addEventListener("click", function (){
+document.getElementById("descendentePrecio").addEventListener("click", function (){
     productosArray = sortProductos(1, productosArray);
 
     mostrarProductos(productosArray);
 
 });
 
-document.getElementById("descendentePrecio").addEventListener("click", function (){
+document.getElementById("ascendentePrecio").addEventListener("click", function (){
     productosArray = sortProductos(2, productosArray);
 
     mostrarProductos(productosArray);
 
 });
 
-document.getElementById("ascendenteRelevancia").addEventListener("click", function (){
+document.getElementById("descendenteRelevancia").addEventListener("click", function (){
     productosArray = sortProductos(3, productosArray);
 
     mostrarProductos(productosArray);
