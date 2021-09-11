@@ -9,6 +9,11 @@ var productosArray = [];
 var minCost;
 var maxCost;
 
+// function verProducto (id) {
+    // localStorage.setItem("producto", JSON.stringify({productoId: id}));
+   // window.location = "product-info.html"
+// }
+
 function sortProductos (criterio, array) { 
     let result = [];
 
@@ -82,6 +87,8 @@ function mostrarProductos(array) {
                         <p class="mb-1">` + producto.description + `</p>
                         <p class="mb-1">` + producto.cost + ` USD </p>
                         <small class="text-muted">` + producto.soldCount + ` artículos vendidos</small>
+                        <br> <br>
+                        <button onclick=window.location="product-info.html">Ver producto</button>
                         </div>
                     </div>
                 </div>`
