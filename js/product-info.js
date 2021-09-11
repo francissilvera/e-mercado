@@ -32,4 +32,8 @@ document.addEventListener("DOMContentLoaded", function(e){
                // }
            // })
             
- 
+ // ENLACES:
+  // https://francissilvera.github.io/e-mercado/js/productos-info_1.json
+  // https://francissilvera.github.io/e-mercado/js/productos-info_2.json
+  // https://francissilvera.github.io/e-mercado/js/productos-info_3.json
+  // https://francissilvera.github.io/e-mercado/js/productos-info_4.json
