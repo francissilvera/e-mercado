@@ -17,7 +17,7 @@ function mostrarProducto(producto){
 };
 
 document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(PRODUCT_INFO_URL).then(function (resultado) {
+    getJSONData(PRODUCT_INFO_URL+id+".json").then(function (resultado) {
         if (resultado.status === "ok") {
             producto = resultado.data
         mostrarProducto(producto);
