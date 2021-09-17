@@ -9,8 +9,9 @@ var productosArray = [];
 var minCost;
 var maxCost;
 
+
 function verProducto (id) {
-    localStorage.setItem("producto", JSON.stringify({productoId: id}));
+    localStorage.setItem("producto", JSON.stringify({productoId:id}));
     window.location = "product-info.html"
 }
 

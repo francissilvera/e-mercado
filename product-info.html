@@ -13,6 +13,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -62,7 +63,25 @@
           <div class="row text-center text-lg-left pt-2" id="productImages">
           </div>
         </dd>
-      </dl>
+
+        <div id="productComments">
+          <h4>Comentarios</h4>
+          <br>
+          <div id="cat-list-container">
+          </div>
+        </div>
+  
+      <div id="NewComment">
+        <br>
+        <h5>Haz tu propio comentario sobre el producto</h5>
+
+        <textarea id="nuevoComentario" rows="5" cols="70"></textarea>
+        <div id="stars">
+        </div>
+        <button id="enviarComentario">Enviar</button> 
+      </div>
+        <br>
+  
       <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver todos los productos</a>
     </div>
   </main>
@@ -84,6 +103,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+  <script src="js/stars.js"></script>
 </body>
 
 </html>
