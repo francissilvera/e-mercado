@@ -43,9 +43,8 @@ function mostrarProducto(producto){
             <img class="img-fluid img-thumbnail" src="${producto.images[i]}" alt="">
           </div>
         </div>`
-
-      //INVESTIGAR CARRUSEL PARA IMÁGENES
   }
+
   cajaImagenes.innerHTML += imagenes;
 
 }; 
@@ -76,13 +75,13 @@ function mostrarComentarios(comentarios) {
     cajaComentarios.innerHTML = contenido;
 
 
-  function mostrarRating (cant) {
+  function mostrarRating (puntos) {
 
      let estrellas = "";
   
      for(let i=0; i<5; i++){
 
-      if(i<cant){
+      if(i<puntos){
           estrellas += `<span class="fa fa-star checked"></span>`
       } 
     };
