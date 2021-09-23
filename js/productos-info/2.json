@@ -9,5 +9,5 @@
     "images": [
         "img/prod2.jpg"
     ],
-    "relatedProducts": [2, 4]
+    "relatedProducts": [0, 2]
 }

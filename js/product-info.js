@@ -5,6 +5,7 @@ redirigirAlLogin();
 
 var producto;
 var comentariosArray = [];
+var arrayProductos = [];
 let PRODUCTO_INFO_URL;
 
 let idProducto = JSON.parse(localStorage.getItem("producto")).productoId
@@ -91,40 +92,54 @@ function mostrarComentarios(comentarios) {
     };
   };
 
-  function mostrarProductosRelacionados(arrayProductos) {
+  function mostrarProductosRelacionados(producto, arrayProductos) {
 
-    for (let i=0; i<arrayProductos.relatedProducts.length; i++) {
-      let producto = arrayProductos[i];
+  for (let i=0; i<arrayProductos.length; i++) {
+    
+      for (let i=0; i<producto.relatedProducts.length; i++) {
+        let relProd = producto.relatedProducts[i];
+      
+      if (relProd===0) {
+        document.getElementById("relatedProducts").innerHTML += arrayProductos[0].name;
+      }  
+      
+      if (relProd===1) {
+        document.getElementById("relatedProducts").innerHTML += arrayProductos[1].name;
+        }
 
-      if (producto.relatedProducts===1) {
-        document.getElementById("relatedProducts").innerHTML = producto[1].name;
-      }
-    }
-  };
+      if (relProd===2) {
+        document.getElementById("relatedProducts").innerHTML += arrayProductos[2].name;
+        }
+      
+      if (relProd===3) {
+        document.getElementById("relatedProducts").innerHTML += arrayProductos[3].name;
+          }
+     }
+  }
+ }
 
 document.addEventListener("DOMContentLoaded", function(e){
 
-  getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (result) {
-    if (result.status === "ok") {
-        comentariosArray = result.data;
+  getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultado) {
+    if (resultado.status === "ok") {
+        comentariosArray = resultado.data;
     }
-
-    filtrarProducto(idProducto);
-    getJSONData(PRODUCTO_INFO_URL).then(function (resultado) {
-        if (resultado.status === "ok") {
-            producto = resultado.data;
-        }
-    getJSONData(PRODUCTS_URL).then(function(resultado){
-        if (resultado.status === "ok") {
-          arrayProductos = resultado.data; 
-        }
-   
-        mostrarProducto(producto);
-        mostrarProductosRelacionados(arrayProductos);
-        mostrarComentarios(comentariosArray);
+      filtrarProducto(idProducto);
+        getJSONData(PRODUCTO_INFO_URL).then(function (resultado) {
+            if (resultado.status === "ok") {
+                producto = resultado.data;
+            }
+          getJSONData(PRODUCTS_URL).then(function (resultado) {
+              if (resultado.status === "ok") {
+                arrayProductos = resultado.data; 
+              }
+    mostrarProducto(producto);
+    mostrarComentarios(comentariosArray);
+    mostrarProductosRelacionados(producto,arrayProductos);
+ 
+          });
       });
-    });
-});
+  });
 });
 
 document.getElementById("enviarComentario").addEventListener("click", function() {
