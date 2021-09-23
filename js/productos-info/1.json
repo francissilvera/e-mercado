@@ -8,5 +8,6 @@
     "category": "Autos",
     "images": [
         "img/prod3.jpg"
-    ]
+    ],
+    "relatedProducts": [1, 3]
 }

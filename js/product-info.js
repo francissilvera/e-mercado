@@ -90,6 +90,16 @@ function mostrarComentarios(comentarios) {
     };
   };
 
+  function mostrarProductosRel(productos) {
+    let prodRel = ""
+
+    for (let i=0; i<productos.relatedProducts.length; i++) {
+      
+    }
+
+    document.getElementById("relatedProducts").innerHTML = prodRel
+  } 
+
 document.addEventListener("DOMContentLoaded", function(e){
 
   getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (result) {
