@@ -6,7 +6,8 @@
         "cost": 15200,
         "currency": "USD",
         "imgSrc": "img/prod4.jpg",
-        "soldCount": 17
+        "soldCount": 17,
+        "relatedProducts": [1, 3]
     },
     {
         "id": 2,
@@ -15,7 +16,8 @@
         "cost": 14500,
         "currency": "USD",
         "imgSrc": "img/prod2.jpg",
-        "soldCount": 52
+        "soldCount": 52,
+        "relatedProducts": [0, 2]
     },
     {
         "id": 3,
@@ -24,7 +26,8 @@
         "cost": 13500,
         "currency": "USD",
         "imgSrc": "img/prod1.jpg",
-        "soldCount": 14
+        "soldCount": 14,
+        "relatedProducts": [1, 2]
     },
     {
         "id": 4,
@@ -33,6 +36,7 @@
         "cost": 12500,
         "currency": "USD",
         "imgSrc": "img/prod3.jpg",
-        "soldCount": 25
+        "soldCount": 25,
+        "relatedProducts": [0, 3]
     }
 ]

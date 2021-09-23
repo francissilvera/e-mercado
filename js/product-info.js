@@ -33,6 +33,7 @@ function mostrarProducto(producto){
   document.getElementById("productCost").innerHTML = producto.cost + ` ` + producto.currency;
   document.getElementById("productSoldCount").innerHTML = producto.soldCount;
 
+
   let cajaImagenes = document.getElementById("productImages");
   let imagenes = "";
   
@@ -90,15 +91,16 @@ function mostrarComentarios(comentarios) {
     };
   };
 
-  function mostrarProductosRel(productos) {
-    let prodRel = ""
+  function mostrarProductosRelacionados(arrayProductos) {
 
-    for (let i=0; i<productos.relatedProducts.length; i++) {
-      
+    for (let i=0; i<arrayProductos.relatedProducts.length; i++) {
+      let producto = arrayProductos[i];
+
+      if (producto.relatedProducts===1) {
+        document.getElementById("relatedProducts").innerHTML = producto[1].name;
+      }
     }
-
-    document.getElementById("relatedProducts").innerHTML = prodRel
-  } 
+  };
 
 document.addEventListener("DOMContentLoaded", function(e){
 
@@ -112,8 +114,15 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultado.status === "ok") {
             producto = resultado.data;
         }
+    getJSONData(PRODUCTS_URL).then(function(resultado){
+        if (resultado.status === "ok") {
+          arrayProductos = resultado.data; 
+        }
+   
         mostrarProducto(producto);
+        mostrarProductosRelacionados(arrayProductos);
         mostrarComentarios(comentariosArray);
+      });
     });
 });
 });
