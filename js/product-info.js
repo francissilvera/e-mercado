@@ -94,7 +94,7 @@ function mostrarComentarios(comentarios) {
 
   function mostrarProductosRelacionados(producto, arrayProductos) {
 
-  for (let i=0; i<arrayProductos.length; i++) {
+  // for (let i=0; i<arrayProductos.length; i++) {
     
       for (let i=0; i<producto.relatedProducts.length; i++) {
         let relProd = producto.relatedProducts[i];
@@ -115,7 +115,7 @@ function mostrarComentarios(comentarios) {
         document.getElementById("relatedProducts").innerHTML += arrayProductos[3].name;
           }
      }
-  }
+  // }
  }
 
 document.addEventListener("DOMContentLoaded", function(e){
