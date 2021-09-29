@@ -47,7 +47,7 @@ function mostrarProducto(producto){
         </div>`
   }
 
-  cajaImagenes.innerHTML += imagenes;
+  cajaImagenes.innerHTML = imagenes;
 
 }; 
 
@@ -92,108 +92,52 @@ function mostrarComentarios(comentarios) {
     };
   };
 
- function redirigirAlProducto(id) {
+function redirigirAlProducto(indice) {
 
-  document.getElementById("productImages").innerHTML = ""
-  document.getElementById("relatedProducts").innerHTML = ""
-
-      filtrarProducto(id);
-        getJSONData(PRODUCTO_INFO_URL).then(function (resultado) {
-            if (resultado.status === "ok") {
-                producto = resultado.data;
-
-              mostrarProducto(producto);
-              mostrarComentarios(comentariosArray);
-              mostrarProductosRelacionados(producto,arrayProductos);
-            };
-          });
-        };
-
-
-  function mostrarProductosRelacionados(producto, arrayProductos) {
-
-  // for (let i=0; i<arrayProductos.length; i++) {
-    
-      for (let i=0; i<producto.relatedProducts.length; i++) {
-        let relProd = producto.relatedProducts[i];
-      
-      if (relProd===0) {
-        document.getElementById("relatedProducts").innerHTML += `
-            <div class="col-md-4">
-            <div class="card mb-4 shadow-sm custom-card">
-            <a href="#" class="list-group-item-action" onclick="redirigirAlProducto(` + 1 + `)">
-                <img class="bd-placeholder-img card-img-top"  src="` + arrayProductos[0].imgSrc + `">
-                <h3 class="m-3">` + arrayProductos[0].name + `</h3>
-                <div class="card-body">
-                    <p class="card-text"> ` + arrayProductos[0].currency + " " + arrayProductos[0].cost + `</p>  
-             </div>
-            </a>
-          </div>
-        </div>`
-      }  
-      
-      if (relProd===1) {
-        document.getElementById("relatedProducts").innerHTML += `
-        <div class="col-md-4">
-        <div class="card mb-4 shadow-sm custom-card">
-        <a href="#" class=" list-group-item-action" onclick="redirigirAlProducto(` + 2 + `)">
-            <img class="bd-placeholder-img card-img-top"  src="` + arrayProductos[1].imgSrc + `">
-            <h3 class="m-3">` + arrayProductos[1].name + `</h3>
-            <div class="card-body">
-                 <p class="card-text"> ` + arrayProductos[1].currency + " " + arrayProductos[1].cost + `</p>  
-             </div>
-            </a>
-          </div>
-        </div>`
-        }
-
-      if (relProd===2) {
-        document.getElementById("relatedProducts").innerHTML += `
-        <div class="col-md-4">
-        <div class="card mb-4 shadow-sm custom-card">
-        <a href="#" class=" list-group-item-action" onclick="redirigirAlProducto(` + 3 + `)">
-            <img class="bd-placeholder-img card-img-top"  src="` + arrayProductos[2].imgSrc + `">
-            <h3 class="m-3">` + arrayProductos[2].name + `</h3>
-            <div class="card-body">
-                 <p class="card-text"> ` + arrayProductos[2].currency + " " + arrayProductos[2].cost + `</p>  
-             </div>
-            </a>
-          </div>
-        </div>`
-        }
-      
-      if (relProd===3) {
-        document.getElementById("relatedProducts").innerHTML += `
-        <div class="col-md-4">
-        <div class="card mb-4 shadow-sm custom-card"> 
-        <a href="#" class=" list-group-item-action" onclick="redirigirAlProducto(` + 4 + `)">
-            <img class="bd-placeholder-img card-img-top"  src="` + arrayProductos[3].imgSrc + `">
-            <h3 class="m-3">` + arrayProductos[3].name + `</h3>
-            <div class="card-body">
-                 <p class="card-text"> ` + arrayProductos[3].currency + " " + arrayProductos[3].cost + `</p>  
-             </div>
-            </a>
-          </div>
-        </div>`
+        getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultado) {
+          if (resultado.status === "ok") {
+              comentariosArray = resultado.data;
           }
-     }
-  // }
- }
+            filtrarProducto(indice);
+              getJSONData(PRODUCTO_INFO_URL).then(function (resultado) {
+                  if (resultado.status === "ok") {
+                      producto = resultado.data;
+                  }
+                getJSONData(PRODUCTS_URL).then(function (resultado) {
+                    if (resultado.status === "ok") {
+                      arrayProductos = resultado.data; 
+                    }
+          mostrarProducto(producto);
+          mostrarComentarios(comentariosArray);
+          mostrarProductosRelacionados(producto, arrayProductos);
+       
+                });
+            });
+        });
+    };
+      
+ function mostrarProductosRelacionados(producto, arrayProductos) {
 
- /* contenido += `
- <div class="col-md-4">
-     <div class="card mb-4 shadow-sm custom-card">
-         <a href="product-info.html" class=" list-group-item-action" onclick="setProduct(`+  (i+1) +`)">
-             <img class="bd-placeholder-img card-img-top"  src="` + product.imgSrc + `">
-             <h3 class="m-3">` + product.name + `</h3>
-             <div class="card-body">
-                 <p class="card-text"> ` + product.description + `</p>
-                 <p class="card-text"> ` + "Cantidad vendidos " + product.soldCount + `</p>
-                 <p class="card-text"> ` + product.currency + " " + product.cost + `</p>
+  let contenido="";
+  
+      for (let i=0; i<producto.relatedProducts.length; i++) {
+        let relProd=producto.relatedProducts[i]
+        
+        contenido += `
+         <div class="d-flex justify-content-between"> 
+            <div class="card mb-4 shadow-sm custom-card">
+            <a href="#" class="list-group-item-action" onclick="redirigirAlProducto(` + (relProd+1) + `)">
+                <img class="bd-placeholder-img card-img-top"  src="` + arrayProductos[relProd].imgSrc + `">
+                <h3 class="m-3">` + arrayProductos[relProd].name + `</h3>
+                <div class="card-body">
+                    <p class="card-text"> ` + arrayProductos[relProd].currency + " " + arrayProductos[relProd].cost + `</p>  
              </div>
-         </a>
-     </div>
- </div> ` */
+            </a>
+        </div>`
+
+        document.getElementById("relatedProducts").innerHTML = contenido;
+      }  
+    };
 
 document.addEventListener("DOMContentLoaded", function(e){
 
@@ -212,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function(e){
               }
     mostrarProducto(producto);
     mostrarComentarios(comentariosArray);
-    mostrarProductosRelacionados(producto,arrayProductos);
+    mostrarProductosRelacionados(producto, arrayProductos);
  
           });
       });

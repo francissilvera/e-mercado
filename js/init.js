@@ -59,11 +59,10 @@ function signOut(){
 document.addEventListener("DOMContentLoaded", function(e){
 
   let UsuarioLogueado = localStorage.getItem("UserLogged")
-  let Usuario = document.getElementById("user")
+  let Usuario = document.getElementById("dropdownMenuLink")
 
   if (UsuarioLogueado) {
     UsuarioLogueado = JSON.parse(UsuarioLogueado); //Se transforma el JSON que contiene el valor (string) ingresado por el usuario en un objeto, para poder acceder a sus atributos. 
-    Usuario.innerText += "Usuario: " + UsuarioLogueado.email;
-    Usuario.innerHTML +=`<img id="salir" src="img/LogOut.png" onclick="signOut()"></img>`
+    Usuario.innerText += UsuarioLogueado.email  
   }
 });
