@@ -7,7 +7,9 @@
     "soldCount": 17,
     "category": "Autos",
     "images": [
-        "img/prod3.jpg"
+        "img/prod3.jpg",
+        "img/prod3_1.jpg",
+        "img/prod3_2.jpg"
     ],
     "relatedProducts": [1, 3]
 }

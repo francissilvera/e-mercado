@@ -34,22 +34,28 @@ function mostrarProducto(producto){
   document.getElementById("productCost").innerHTML = producto.cost + ` ` + producto.currency;
   document.getElementById("productSoldCount").innerHTML = producto.soldCount;
 
+    let cajaImagenes = document.getElementById("productImages");
+    let contenido = "";
 
-  let cajaImagenes = document.getElementById("productImages");
-  let imagenes = "";
-  
-  for (let i=0; i<producto.images.length; i++) {
-    imagenes +=`
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="${producto.images[i]}" alt="">
-          </div>
-        </div>`
-  }
+    for(let i=0; i<producto.images.length; i++){
 
-  cajaImagenes.innerHTML = imagenes;
+        if(i==0){
+            contenido += `
+                <div class="carousel-item active">
+                    <img src="`+ producto.images[i] +`" class="d-block w-100" alt="">
+                </div>`
+        }
+        else{
+            contenido += `
+                    <div class="carousel-item">
+                        <img src="`+ producto.images[i] +`" class="d-block w-100" alt="">
+                    </div>`
+        }
+    }
 
-}; 
+    cajaImagenes.innerHTML = contenido;
+
+  };
 
 function mostrarComentarios(comentarios) {
 
@@ -60,8 +66,7 @@ function mostrarComentarios(comentarios) {
     for(let i=0; i<comentarios.length; i++){
         let comentario = comentarios[i];
 
-        contenido += 
-        `
+        contenido += `
         <div class="list-group-item">
           <div class="d-flex w-100 justify-content-between">
           <h6> <strong style="color: coral">`+ comentario.user +`</strong>  dice:</h6>
@@ -176,3 +181,10 @@ mostrarComentarios(comentariosArray);
 document.getElementById("nuevoComentario").value="";
 
 });
+
+     /* <div class="col-lg-3 col-md-4 col-6">
+            <div class="d-block mb-4 h-100">
+            <img class="img-fluid img-thumbnail" src= alt="">+
+            
+          </div>
+        </div>`*/
