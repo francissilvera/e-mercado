@@ -89,7 +89,7 @@ function mostrarProductos(array) {
                         <p class="mb-1">` + producto.cost + ` USD </p>
                         <small class="text-muted">` + producto.soldCount + ` artículos vendidos</small>
                         <br> <br>
-                        <button onclick="verProducto(` + producto.id + `)">Ver producto</button>
+                        <button type="button" class="btn btn-info" onclick="verProducto(` + producto.id + `)">Ver producto</button>
                         </div>
                     </div>
                 </div>`

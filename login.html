@@ -36,20 +36,23 @@
     }
   </style>
 </head>
-<body>
+<body class="text-center">
   <div class="ingreso">
     <img src="img/login.png" id="imagenIngreso">
     <br>
     <br>
     <h1>Ingrese sus datos</h1>
+    <br>
 
-    <label for="inputEmail">Email</label><br>
-    <input type="email" id="inputEmail" placeholder="Email"><br><br>
+    <div class="input-group mb-3">
+    <input type="text" class="form-control" id="inputEmail" placeholder="Email" aria-label="Email" aria-describedby="basic-addon2">
+    <div class="input-group mb-3">
+    <input type="text" class="form-control" id="inputPassword" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon2">
+   </div>
+  </div>
 
-    <label for="inputPassword">Contraseña</label><br>
-    <input type="password" id="inputPassword" placeholder="Contraseña"><br><br>
-
-    <button id="submit">Ingresar</button> 
+    <button type="button" class="btn btn-info" id="submit">Ingresar</button> 
+    <div id="alerta"></div>
 
   </div>
 

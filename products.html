@@ -35,24 +35,31 @@
 
     <h2 id="titulo"><br>Productos</h2>
     <p id="subtitulo">Verás aquí todos los productos del sitio </p>
-    <div>
-      <input type="search" id="buscador" placeholder="Buscar productos"></input>
-      <button id="limpiarBusqueda" placeholder="Limpiar Búsqueda">Limpiar</button>
-    </div>
-      <br>
+   
+
+      <div class="input-group mb-3 row col-4">
+        <input type="text" class="form-control" id="buscador" placeholder="Buscar productos" aria-label="Buscar productos" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" id="limpiarBusqueda" type="button">Limpiar</button>
+        </div>
+      </div>
+
       <div id="filtro">
-        <input type="number" id="rango-min" placeholder="Precio mínimo"></input>
-        <input type="number" id="rango-max" placeholder="Precio máximo"></input>
-        <button id="botonFiltro">Filtrar</button>
-        <button id="botonLimpiar">Limpiar</button>
+        <div class="input-group mb-3 row col-4">
+          <input type="number" class="form-control"  id="rango-min" placeholder="Precio mínimo" aria-label="Precio mínimo" aria-describedby="basic-addon2">
+          <input type="number" class="form-control"  id="rango-max" placeholder="Precio máximo" aria-label="Precio máximo" aria-describedby="basic-addon2">        
+          <button type="button" class="btn btn-light" id="botonFiltro">Filtrar</button> 
+          <button type="button" class="btn btn-light" id="botonLimpiar">Limpiar</button>
+      </div>
        </div>
-    <br>
+
       <div id="ordenar">
     <span>Ordenar por: </span>
-    <button id="descendentePrecio">Mayor precio</button>
-    <button id="ascendentePrecio">Menor precio</button>
-    <button id="descendenteRelevancia">Más vendidos</button>
+    <button type="button" class="btn btn-light" id="descendentePrecio">Mayor precio</button>
+    <button type="button" class="btn btn-light" id="ascendentePrecio">Menor precio</button> 
+    <button type="button" class="btn btn-light" id="descendenteRelevancia">Más vendidos</button>
       </div>
+
     <div id="productos">  
       </div>
     <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
