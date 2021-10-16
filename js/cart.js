@@ -4,10 +4,6 @@
 
 redirigirAlLogin();
 
-document.addEventListener("DOMContentLoaded", function(e){
-
-});
-
 const CART_INFO = "https://japdevdep.github.io/ecommerce-api/cart/654.json"
 
 function mostrarCarrito(productos) {
