@@ -1,4 +1,4 @@
-.jumbotron, .card-body, .container, .site-header{
+.jumbotron, .card-body, .container, .container-fluid, .site-header{
     font-family: 'Raleway', serif !important;
 }
 

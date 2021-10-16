@@ -53,14 +53,81 @@
     </div>
   </nav>
 
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
+<div class="container-fluid pt-5 pl-5">
+  <h2 class="pb-4" style="color:darkgoldenrod;text-align: center;">Mi carrito</h2>
+  <div class="row">
+  <div class="col-9">
+  <div class="table-responsive-md">
+  <table class="table table-hover">
+  <thead class="thead-light">
+  <tr>
+    <th scope="col"></th>
+    <th scope="col">Producto</th>
+    <th scope="col">Cantidad</th>
+    <th scope="col">Costo unitario</th>
+    <th scope="col">Costo total</th>
+  </tr>
+</thead>
+<tbody id="carrito">
+  </tbody>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="col pl-3">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h4 class="card-title" style="color: darkgoldenrod;">Resumen del pedido</h4>
+      <h5>Subtotal</h5>
+      <h5 id="subtotal" style="color: gray;"></h5>
+
+      <p class="card-text" id="subtotal"></p>
+      <h5>Método de envío</h5>
+      <div class="row">
+        <div class="col align-self-end">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <select class="custom-select" id="inputGroupSelect01">
+          <option selected>Elegir</option>
+          <option value="1">Premium (2-5 días)</option>
+          <option value="2">Express (5-8 días)</option>
+          <option value="3">Standard (12 a 15 días)</option>
+        </select>
+        </div>
+        </div>
+        </div>
+        </div>
+      
+      <p class="card-text" id="subtotal"></p>
+      <h5>Forma de pago</h5>
+      <div class="row">
+        <div class="col align-self-end">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <select class="custom-select" id="inputGroupSelect02">
+          <option selected>Elegir</option>
+          <option value="1">Tarjeta de crédito</option>
+          <option value="2">Transferencia bancaria</option>
+        </select> 
+        </div>
+        </div>
+        </div>
+        </div>
+
       <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+      <h5>Costo final</h5>
+      <h5 id="total" style="color: gray;"></h5>
+      <p class="card-text"></p>
+      <a href="#" class="btn btn-warning" id="botonComprar">Comprar</a>
+      <div id="alerta"></div>
     </div>
   </div>
+</div>
+</div>
+</div>
+</div>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -69,6 +136,8 @@
       <div></div>
     </div>
   </div>
+</div>
+
 
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
