@@ -90,7 +90,7 @@ document.getElementById("botonComprar").addEventListener("click", function (e) {
   document.getElementById("alerta").innerHTML= `
   <div class="alert alert-success" role="alert">
   <h4 class="alert-heading">¡Has ralizado tu compra con éxito!</h4>
-  <p>Ya puedes seguir navegando por nuestra página</p>
+  <p>Ya puedes seguir navegando por nuestro sitio</p>
   <hr>
 <button type="button" class="btn btn-light" onclick=window.location="products.html">Ver otros productos</button>
 </div>`
