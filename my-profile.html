@@ -47,25 +47,76 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
           <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
-          <a class="dropdown-item" onclick="signOut()">Cerrar sesión</a>
+          <a class="dropdown-item" id="cerrarSesion" onclick="signOut()">Cerrar sesión</a>
         </div>
       </div>
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
+    <div style="position: relative; width:auto; top: 0;">
+      <h2 class="text-center">Mi perfil</h2>
+      <p class="text-center" id="subt">Completa tus datos personales</p>
       <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+      <br>
+      <!------NOMBRES------>
+      <div class="row">
+        <div class="col-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Nombres</span>
+              </div>
+            <input type="text" id="nombre1" aria-label="First name" class="form-control" placeholder="Primer nombre">
+            <input type="text" id="nombre2" aria-label="Last name" class="form-control" placeholder="Segundo nombre">
+            </div>
+          </div>
+       <!------APELLIDOS------>
+            <div class="col-6">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Apellidos</span>
+                </div>
+                <input type="text" id="apellido1" aria-label="First name" class="form-control" placeholder="Primer apellido">
+                <input type="text" id="apellido2" aria-label="Last name" class="form-control" placeholder="Segundo apellido">
+              </div>
+            </div>
+          </div>
+          <br>
+  <!------EDAD------>
+  <div class="row">
+    <div class="col">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Edad</span>
+        </div>
+        <input type="number" id="edad" aria-label="First name" class="form-control">
+      </div>
+    </div>
+  <!------CORREO ELECTRÓNICO------>
+        <div class="col-6">
+        <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Correo electrónico</span>
+        </div>
+        <input type="text" id="correo" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+      </div>      
+    </div>
+  <!------TELÉFONO DE CONTACTO------>
+      <div class="col-4">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Teléfono de contacto</span>
+        </div>
+        <input type="number" id="telContacto" aria-label="First name" class="form-control">
+      </div>
     </div>
   </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
-  </footer>
+  <br>
+
+<button type="button" id="guardarDatos" class="btn btn-info btn-lg btn-block">Guardar mis datos</button>
+
+</div>
+
+
   <div class="alert fade alert-success" role="alert" id="alertResult">
     <span id="resultSpan"></span>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">

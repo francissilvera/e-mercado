@@ -130,7 +130,7 @@ function redirigirAlProducto(indice) {
         
         contenido += `
          <div class="d-flex justify-content-between"> 
-            <div class="card mb-4 shadow-sm custom-card">
+            <div class="card mb-4 shadow-sm custom-card ml-4" style="width: 17rem;">
             <a href="#" class="list-group-item-action" onclick="redirigirAlProducto(` + (relProd+1) + `)">
                 <img class="bd-placeholder-img card-img-top"  src="` + arrayProductos[relProd].imgSrc + `">
                 <h3 class="m-3">` + arrayProductos[relProd].name + `</h3>
