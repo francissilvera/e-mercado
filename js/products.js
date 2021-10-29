@@ -76,7 +76,8 @@ function mostrarProductos(array) {
             if ((buscar == undefined) || (producto.name.toLowerCase().includes(buscar))
                 || (producto.description.toLowerCase().includes(buscar))) { //Se cargan solamente aquellos productos cuyo nombre o descripción incluyan la cadena de caracteres ingresada por el usuario en el buscador. Si el usuario no ingresa ningún caracter, se le muestran todos los productos.
 
-                contenido += `<div class="card col-sm-2 col-lg-4">
+                contenido += `<div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
                 <img class="card-img-top" src="${producto.imgSrc}" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">${producto.name}</h5>
@@ -85,6 +86,8 @@ function mostrarProductos(array) {
                   <p class="card-text">${producto.cost} USD</p>
                   <button type="button" class="btn btn-info" onclick="verProducto(` + producto.id + `)">Ver producto</button>
                 </div>
+                </div>
+                <br>
               </div>`
 
             }

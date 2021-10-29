@@ -33,35 +33,51 @@
       </div>
     </nav>
 
-    <h2 id="titulo"><br>Productos</h2>
-    <p id="subtitulo">Verás aquí todos los productos del sitio</p>
-   
-
-      <div class="input-group mb-3 row col-4">
-        <input type="text" class="form-control" id="buscador" placeholder="Buscar productos" aria-label="Buscar productos" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" id="limpiarBusqueda" type="button">Limpiar</button>
+    <div class="container-fluid pr-5">
+      <div class="row">
+        <div class="col-12 text-center">
+        <h2 id="titulo"><br>Productos</h2>
+        <p id="subtitulo">Verás aquí todos los productos del sitio</p>
+    </div>
+</div>
+      <div class="row">
+        <div class="col-lg-12 text-right">
+          <div id="ordenar">
+            <button type="button" class="btn btn-light" id="descendentePrecio">Mayor precio</button>
+            <button type="button" class="btn btn-light" id="ascendentePrecio">Menor precio</button> 
+            <button type="button" class="btn btn-light" id="descendenteRelevancia">Más vendidos</button>
+              </div>
+            </div> 
+          </div> 
+          <br>  
+          <div class="row">
+              <div class="col-lg-4 col-md-12">
+                <div class="input-group">
+                  <input type="text" class="form-control" id="buscador" placeholder="Buscar productos" aria-label="Buscar productos" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" id="limpiarBusqueda" type="button">Limpiar</button>
+                  </div>
+                </div>
+            </div> 
+          <div class="col-lg-3 col-md-5">
+            </div>
+          <div class="col-lg-5 col-md-12 col-sm-12 text-right">
+            <div id="filtro">
+              <div class="input-group">
+                <input type="number" class="form-control"  id="rango-min" placeholder="Precio mínimo" aria-label="Precio mínimo" aria-describedby="basic-addon2">
+                <input type="number" class="form-control"  id="rango-max" placeholder="Precio máximo" aria-label="Precio máximo" aria-describedby="basic-addon2">        
+                <button type="button" class="btn btn-light" id="botonFiltro">Filtrar</button> 
+                <button type="button" class="btn btn-light" id="botonLimpiar">Limpiar</button>
+            </div>
+             </div>
+          </div>
+        </div> 
+          <br>
+          <div class="card-deck pl-5">
+          <div class="row" id="productos">
+          </div>
         </div>
       </div>
-
-      <div id="filtro">
-        <div class="input-group mb-3 row col-4">
-          <input type="number" class="form-control"  id="rango-min" placeholder="Precio mínimo" aria-label="Precio mínimo" aria-describedby="basic-addon2">
-          <input type="number" class="form-control"  id="rango-max" placeholder="Precio máximo" aria-label="Precio máximo" aria-describedby="basic-addon2">        
-          <button type="button" class="btn btn-light" id="botonFiltro">Filtrar</button> 
-          <button type="button" class="btn btn-light" id="botonLimpiar">Limpiar</button>
-      </div>
-       </div>
-
-      <div id="ordenar">
-    <span>Ordenar por: </span>
-    <button type="button" class="btn btn-light" id="descendentePrecio">Mayor precio</button>
-    <button type="button" class="btn btn-light" id="ascendentePrecio">Menor precio</button> 
-    <button type="button" class="btn btn-light" id="descendenteRelevancia">Más vendidos</button>
-      </div>
-      <br>
-
-      <div class="card-deck ml-4" id="productos"></div>
         
     <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
     <script src="js/jquery-3.4.1.min.js"></script>
