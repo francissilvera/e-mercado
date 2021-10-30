@@ -14,7 +14,8 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <style>
-    html, body{
+    html,
+    body {
       height: 100%;
     }
 
@@ -36,28 +37,32 @@
     }
   </style>
 </head>
+
 <body class="text-center">
   <div class="ingreso">
     <img src="img/login.png" id="imagenIngreso">
     <br>
     <br>
     <h1>Ingrese sus datos</h1>
-    <br>
 
-    <div class="input-group mb-3">
-    <input type="text" class="form-control" id="inputEmail" placeholder="Email" aria-label="Email" aria-describedby="basic-addon2">
-    <div class="input-group mb-3">
-    <input type="text" class="form-control" id="inputPassword" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon2">
-   </div>
-  </div>
-
-    <button type="button" class="btn btn-info" id="submit">Ingresar</button> 
-    <div id="alerta"></div>
-
+    <form class="signin">
+      <div class="input-group mb-3">
+        <label for="inputEmail"></label>
+        <input type="email" name="email" class="form-control" id="inputEmail" required="" placeholder="Email"
+          aria-label="Email" aria-describedby="basic-addon2">
+        <div class="input-group mb-3">
+          <label for="inputPassword"></label>
+          <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña" required=""
+            varia-label="Contraseña" aria-describedby="basic-addon2">
+        </div>
+      </div>
+      <button type="button" class="btn btn-info" id="submit">Ingresar</button>
+      <div id="alerta"></div>
+    </form>
   </div>
 
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
 </body>
-</html>
 
+</html>

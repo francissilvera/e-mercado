@@ -46,96 +46,120 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-          <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
           <a class="dropdown-item" id="cerrarSesion" onclick="signOut()">Cerrar sesión</a>
         </div>
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div style="position: relative; width:auto; top: 0;">
+  <div class="container p-5" style="position: relative; width:auto; top: 0;">
       <h2 class="text-center">Mi perfil</h2>
       <p class="text-center" id="subt">Completa tus datos personales</p>
       <hr>
+
+      <!------IMAGEN DE USUARIO------>
+      <div class="row justify-content-center">
+        <img id="foto" src="" height="200">
+      </div>
       <br>
+        <div class="row">
+          <div class="col-3"></div>
+        <div class="col-6">
+          <div class="input-group">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input form-control" id="inputFile" onchange="mostrarFoto()" placeholder="">
+              <label class="custom-file-label" for="inputGroupFile04">Selecciona tu imagen de usuario</label>
+            </div>
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" id="guardar" onclick="guardarImagen()" type="button">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+
       <!------NOMBRES------>
       <div class="row">
         <div class="col-6">
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text">Nombres</span>
-              </div>
+            </div>
             <input type="text" id="nombre1" aria-label="First name" class="form-control" placeholder="Primer nombre">
             <input type="text" id="nombre2" aria-label="Last name" class="form-control" placeholder="Segundo nombre">
-            </div>
           </div>
-       <!------APELLIDOS------>
-            <div class="col-6">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Apellidos</span>
-                </div>
-                <input type="text" id="apellido1" aria-label="First name" class="form-control" placeholder="Primer apellido">
-                <input type="text" id="apellido2" aria-label="Last name" class="form-control" placeholder="Segundo apellido">
-              </div>
-            </div>
-          </div>
-          <br>
-  <!------EDAD------>
-  <div class="row">
-    <div class="col">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Edad</span>
         </div>
-        <input type="number" id="edad" aria-label="First name" class="form-control">
-      </div>
-    </div>
-  <!------CORREO ELECTRÓNICO------>
+        <!------APELLIDOS------>
         <div class="col-6">
-        <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-default">Correo electrónico</span>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Apellidos</span>
+            </div>
+            <input type="text" id="apellido1" aria-label="First name" class="form-control"
+              placeholder="Primer apellido">
+            <input type="text" id="apellido2" aria-label="Last name" class="form-control"
+              placeholder="Segundo apellido">
+          </div>
         </div>
-        <input type="text" id="correo" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-      </div>      
+      </div>
+      <br>
+      <!------EDAD------>
+      <div class="row">
+        <div class="col">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Edad</span>
+            </div>
+            <input type="number" id="edad" aria-label="First name" class="form-control">
+          </div>
+        </div>
+        <!------CORREO ELECTRÓNICO------>
+        <div class="col-6">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Correo electrónico</span>
+            </div>
+            <input type="text" id="correo" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+        </div>
+        <!------TELÉFONO DE CONTACTO------>
+        <div class="col-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Teléfono de contacto</span>
+            </div>
+            <input type="number" id="telContacto" aria-label="First name" class="form-control">
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <button type="button" id="guardarDatos" class="btn btn-info btn-lg btn-block">Guardar mis datos</button>
+      <div id="alerta"></div>
+
     </div>
-  <!------TELÉFONO DE CONTACTO------>
-      <div class="col-4">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Teléfono de contacto</span>
-        </div>
-        <input type="number" id="telContacto" aria-label="First name" class="form-control">
+
+
+    <div class="alert fade alert-success" role="alert" id="alertResult">
+      <span id="resultSpan"></span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </div>
-  </div>
-  <br>
-
-<button type="button" id="guardarDatos" class="btn btn-info btn-lg btn-block">Guardar mis datos</button>
-
-</div>
-
-
-  <div class="alert fade alert-success" role="alert" id="alertResult">
-    <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/my-profile.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/dropzone.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/my-profile.js"></script>
 </body>
 
 </html>
