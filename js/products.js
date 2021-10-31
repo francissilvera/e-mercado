@@ -188,36 +188,3 @@ document.getElementById("limpiarBusqueda").addEventListener("click", function ()
     mostrarProductos(productosArray);
 
 });
-
-
-/* <div class="row">
-<div class="col-3">
-    <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
-</div>
-<div class="col">
-    <div class="d-flex w-100 justify-content-between">
-        <h4 class="mb-1">`+ producto.name +`</h4>
-    </div>
-    <p class="mb-1">` + producto.description + `</p>
-    <p class="mb-1">` + producto.cost + ` USD </p>
-    <small class="text-muted">` + producto.soldCount + ` artículos vendidos</small>
-    <br> <br>
-    <button type="button" class="btn btn-info" onclick="verProducto(` + producto.id + `)">Ver producto</button>
-    </div>
-</div>
-</div>` 
-
-<div class="card" style="width: 18rem;">
-<img class="card-img-top" src="${producto.imgSrc}" alt="Card image cap">
-<div class="card-body">
-  <h5 class="card-title">${producto.name}</h5>
-  <p class="card-text">${producto.description}</p>
-</div>
-<ul class="list-group list-group-flush">
-  <li class="list-group-item">${producto.soldCount} artículos vendidos</li>
-  <li class="list-group-item"> ${producto.cost} USD</li>
-</ul>
-<div class="card-body">
-<button type="button" class="btn btn-info" onclick="verProducto(` + producto.id + `)">Ver producto</button>
-</div>
-</div>`*/

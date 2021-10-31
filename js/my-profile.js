@@ -28,7 +28,7 @@ document.getElementById("guardarDatos").addEventListener("click", function () {
 
 document.addEventListener("DOMContentLoaded", function (e) {
 
-  // ALMACENAR DATOS DE LOS NOMBRES //
+  // NOMBRES //
 
   let nombre1Guardado = localStorage.getItem("PrimerNombre");
   let inputNombre1 = document.getElementById("nombre1");
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
   nombre2Guardado = JSON.parse(nombre2Guardado);
   inputNombre2.value = nombre2Guardado.nombre;;
 
-  // ALMACENAR DATOS DE LOS APELLIDOS //
+  // APELLIDOS //
 
   let apellido1Guardado = localStorage.getItem("PrimerApellido");
   let inputApellido1 = document.getElementById("apellido1");
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
   apellido2Guardado = JSON.parse(apellido2Guardado);
   inputApellido2.value = apellido2Guardado.apellido;
 
-  // ALMACENAR DATOS DE LA EDAD //
+  // EDAD //
 
   let edadGuardada = localStorage.getItem("Edad");
   let inputEdad = document.getElementById("edad");
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
   edadGuardada = JSON.parse(edadGuardada);
   inputEdad.value = edadGuardada.edad;
 
-  // ALMACENAR DATOS DEL CORREO //
+  // CORREO //
 
   let correoGuardado = localStorage.getItem("Correo");
   let inputCorreo = document.getElementById("correo");
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
   correoGuardado = JSON.parse(correoGuardado);
   inputCorreo.value = correoGuardado.correo;
 
-  // ALMACENAR DATOS DEL TELEFONO //
+  // TELEFONO //
 
   let telGuardado = localStorage.getItem("Telefono");
   let inputTel = document.getElementById("telContacto");
