@@ -21,7 +21,7 @@ for (let i = 0; i < productos.articles.length; i++) {
   <td><img src=${articulo.src} alt="" width="150px"></td>
   <td><h5>${articulo.name}</h5></td>
   <td><h5><input type="number" class="form-control" id="cantidad${i}" value="${articulo.count}" aria-label="" aria-describedby="basic-addon2" 
-  min="1" max="10" onchange="calcSubtotal(${articulo.unitCost}, ${i})"></h5></td>
+  min="0" max="10" onchange="calcSubtotal(${articulo.unitCost}, ${i})"></h5></td>
   <td><h5>${articulo.unitCost}</h5><span>${articulo.currency}</span></td>
   <td><h5 id="artSubtotal${i}" class="subtotal">${sub}</h5><span>${articulo.currency}</span></td>
 </tr>` 
@@ -64,7 +64,25 @@ function calcTotal() {
    
   document.getElementById("total").innerHTML = total + `<span> UYU </span>`;
   document.getElementById("subtotal").innerHTML = total + `<span> UYU </span>`;
+  calcEnvio() 
 
+};
+
+function calcEnvio() {
+  let total = parseInt(document.getElementById("subtotal").innerHTML);
+  let envio;
+
+  let elements = document.getElementsByName("inputEnvio");
+    for (var i=0; i < elements.length; i++) {
+      if (elements[i].checked){
+        envio = parseInt(total*(elements[i].value)/100);
+      };
+    };
+
+    let totalConEnvio = total + envio;
+
+    document.getElementById("totalEnvio").innerHTML = envio + ` UYU`;
+    document.getElementById("total").innerHTML = totalConEnvio + ` UYU`;
 };
 
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -74,10 +92,18 @@ document.addEventListener("DOMContentLoaded", function (e) {
             productosCarrito = resultado.data;
 
             mostrarCarrito(productosCarrito);
+            calcEnvio();
         }
     }
     )
 });
+
+let elements = document.getElementsByName("inputEnvio");
+for (var i=0; i < elements.length; i++) {
+  elements[i].addEventListener("change", function(){
+    calcEnvio()
+});
+};
 
 /* PARA PRÓXIMAS ENTREGAS
 

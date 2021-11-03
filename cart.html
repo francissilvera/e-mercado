@@ -52,7 +52,7 @@
       </div>
     </div>
   </nav>
-
+<!-----------------------------------TABLA DE PRODUCTOS-------------------------------------->
 <div class="container-fluid pt-5 pl-5">
   <h2 class="pb-4" style="color:darkgoldenrod;text-align: center;">Mi carrito</h2>
   <div class="row">
@@ -74,48 +74,53 @@
 </table>
 </div>
 </div>
-
+<!-----------------------------------SUBTOTAL-------------------------------------->
 <div class="col pl-3">
   <div class="card" style="width: 18rem;">
     <div class="card-body">
       <h4 class="card-title" style="color: darkgoldenrod;">Resumen del pedido</h4>
       <h5>Subtotal</h5>
       <h5 id="subtotal" style="color: gray;"></h5>
-
+      <hr>
+<!-----------------------------------MÉTODO DE ENVÍO-------------------------------------->
       <p class="card-text" id="subtotal"></p>
       <h5>Método de envío</h5>
       <div class="row">
         <div class="col align-self-end">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-        <select class="custom-select" id="inputGroupSelect01">
-          <option selected>Elegir</option>
-          <option value="1">Premium (2 a 5 días)</option>
-          <option value="2">Express (5 a 8 días)</option>
-          <option value="3">Standard (12 a 15 días)</option>
-        </select>
-        </div>
-        </div>
-        </div>
-        </div>
-      
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="inputEnvio" id="inputEnvio1" value="15" checked>
+            <label class="form-check-label" for="exampleRadios1">
+              Premium: 2 a 5 días (15%)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="inputEnvio" id="inputEnvio2" value="7">
+            <label class="form-check-label" for="exampleRadios2">
+              Express: 5 a 8 días (7%)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="inputEnvio" id="inputEnvio3" value="5">
+            <label class="form-check-label" for="exampleRadios2">
+              Standard: 12 a 15 días (5%)
+            </label>
+          </div>
+<!-----------------------------------FORMA DE PAGO-------------------------------------->
       <p class="card-text" id="subtotal"></p>
       <h5>Forma de pago</h5>
       <div class="row">
         <div class="col align-self-end">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-        <select class="custom-select" id="inputGroupSelect02">
-          <option selected>Elegir</option>
-          <option value="1">Tarjeta de crédito</option>
-          <option value="2">Transferencia bancaria</option>
-        </select> 
+          <button type="button" class="btn btn-light" data-toggle="modal" data-target="#ModalPago">
+            Seleccionar
+          </button>
         </div>
-        </div>
-        </div>
-        </div>
-
+      </div>
+<!-----------------------------------COSTOS FINALES-------------------------------------->
       <hr>
+      <h5>Costo de envío</h5>
+      <h5 id="totalEnvio" style="color: gray;"></h5>
+      <p class="card-text"></p>
+
       <h5>Costo final</h5>
       <h5 id="total" style="color: gray;"></h5>
       <p class="card-text"></p>
@@ -138,6 +143,64 @@
   </div>
 </div>
 
+<!-----------------------------------MODAL-------------------------------------->
+
+
+<div class="modal fade" id="ModalPago" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Forma de pago</h5>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="inputEnvio" id="inputEnvio2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Tarjeta de crédito
+            </label>
+          </div>
+          <br>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-7">
+            <label for="formGroupExampleInput">Número de tarjeta</label>
+            <input type="text" class="form-control" id="formGroupExampleInput">
+          </div>
+          <div class="col-4">
+            <label for="formGroupExampleInput">CVV</label>
+            <input type="number" class="form-control" id="formGroupExampleInput">
+          </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-7">
+              <label for="formGroupExampleInput">Vencimiento (MM/AA)</label>
+              <input type="text" class="form-control" id="formGroupExampleInput">
+            </div>
+            </div>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="inputEnvio" id="inputEnvio2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Transferencia bancaria
+            </label>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-7">
+            <label for="formGroupExampleInput">Número de cuenta</label>
+            <input type="text" class="form-control" id="formGroupExampleInput">
+          </div>
+        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-dismiss="modal">Guardar y cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
