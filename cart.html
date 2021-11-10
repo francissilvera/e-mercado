@@ -53,17 +53,17 @@
     </div>
   </nav>
 <!-----------------------------------TABLA DE PRODUCTOS-------------------------------------->
-<div class="container-fluid pt-5 pl-5">
+<div class="container pt-5 pl-5">
   <h2 class="pb-4" style="color:darkgoldenrod;text-align: center;">Mi carrito</h2>
   <div class="row">
-  <div class="col-9">
+  <div class="col-12">
   <div class="table-responsive-md">
   <table class="table table-hover">
   <thead class="thead-light">
   <tr>
     <th scope="col"></th>
     <th scope="col">Producto</th>
-    <th scope="col">Cantidad</th>
+    <th scope="col" id="cantProd">Cantidad</th>
     <th scope="col">Costo unitario</th>
     <th scope="col">Costo total</th>
   </tr>
@@ -72,15 +72,23 @@
   </tbody>
 </tbody>
 </table>
+  <br>
+  <br>
 </div>
 </div>
+
 <!-----------------------------------SUBTOTAL-------------------------------------->
-<div class="col pl-3">
-  <div class="card" style="width: 18rem;">
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-9">
+  <div class="card" style="width: 50rem;">
     <div class="card-body">
-      <h4 class="card-title" style="color: darkgoldenrod;">Resumen del pedido</h4>
-      <h5>Subtotal</h5>
-      <h5 id="subtotal" style="color: gray;"></h5>
+      <h4 class="card-title text-center" style="color: darkgoldenrod;">Resumen del pedido</h4>
+      <br>
+      <hr>
+      <div class="row">
+      <h5 class="col-10">Costo subtotal<h5 id="subtotal" style="color: gray;"></h5></h5>
+      </div>
       <hr>
 <!-----------------------------------MÉTODO DE ENVÍO-------------------------------------->
       <p class="card-text" id="subtotal"></p>
@@ -105,29 +113,68 @@
               Standard: 12 a 15 días (5%)
             </label>
           </div>
+          <hr>
+<!-----------------------------------DIRECCIÓN DE ENVÍO-------------------------------------->
+        <div id="validarDireccion">
+          <p class="card-text" id="subtotal"></p>
+          <h5>Dirección de envío</h5>
+          <div class="row">
+            <div class="col-5">
+          <label>País</label>
+          <input type="text" class="form-control" id="pais" required>
+        </div>
+        <div class="col-5">
+          <label>Ciudad</label>
+          <input type="text" class="form-control" id="ciudad" required>
+        </div>
+      </div>
+      <br>
+        <div class="row">
+        <div class="col-5">
+          <label>Calle</label>
+          <input type="text" class="form-control" id="calle" required>
+        </div>
+          <div class="col-5">
+            <label>Esquina</label>
+            <input type="text" class="form-control" id="esquina" required> 
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-4">
+            <label>Número</label>
+            <input type="number" class="form-control" id="numPuerta" required> 
+          </div>
+          </div>
+          </div>
+          </div>
+        </div>
+          <hr>
 <!-----------------------------------FORMA DE PAGO-------------------------------------->
-      <p class="card-text" id="subtotal"></p>
+  <p class="card-text" id="subtotal"></p>
       <h5>Forma de pago</h5>
       <div class="row">
         <div class="col align-self-end">
-          <button type="button" class="btn btn-light" data-toggle="modal" data-target="#ModalPago">
+          <button type="button"class="btn btn-light" data-toggle="modal" data-target="#ModalPago">
             Seleccionar
           </button>
+          <p style="color: red;" id="feedback"></p>
         </div>
-      </div>
+    </div>
 <!-----------------------------------COSTOS FINALES-------------------------------------->
       <hr>
-      <h5>Costo de envío</h5>
-      <h5 id="totalEnvio" style="color: gray;"></h5>
-      <p class="card-text"></p>
-
-      <h5>Costo final</h5>
-      <h5 id="total" style="color: gray;"></h5>
-      <p class="card-text"></p>
-      <a href="#" class="btn btn-warning" id="botonComprar">Comprar</a>
+      <div class="row">
+      <h5 class="col-10">Costo de envío<h5 id="totalEnvio" style="color: gray;"></h5></h5>
+      </div>
+      <div class="row">
+      <h5 class="col-10">Costo final<h5 id="total" style="color: gray;"></h5></h5>
+      </div>
+      <hr>
+      <button class="btn btn-warning btn-lg btn-block" id="botonComprar">Finalizar compra</button>
       <div id="alerta"></div>
     </div>
   </div>
+</div>
 </div>
 </div>
 </div>
@@ -143,8 +190,81 @@
   </div>
 </div>
 
-<!-----------------------------------MODAL-------------------------------------->
 
+<!-----------------------------------MODAL FORMA DE PAGO-------------------------------------->
+
+<div class="modal fade" id="ModalPago" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document"  id="validarPago" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Forma de pago</h5>
+      </div>
+      <div class="modal-body">
+          <div>
+            <input type="radio" name="radios" id="tarjetaDeCredito" required>
+            <label>
+              Tarjeta de crédito
+            </label>
+          </div>
+          <br>
+          <div>
+            <div class="row">
+              <div class="col-7">
+            <label>Número de tarjeta</label>
+            <input type="number"  class="form-control" id="numTarjeta" required>
+          </div>
+          <div class="col-4">
+            <label>CVV</label>
+            <input type="number" class="form-control" id="CVV" required>
+          </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-7">
+              <label>Vencimiento (MM/AA)</label>
+              <input type="number" class="form-control" id="vencimiento" required> 
+            </div>
+            </div>
+          </div>
+          <div>
+            <br>
+            <input type="radio" name="radios" id="transferenciaBancaria" required>
+            <label>
+              Transferencia bancaria
+            </label>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-7">
+            <label>Número de cuenta</label>
+            <input type="number" class="form-control" id="numCuenta" required>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-light" data-dismiss="modal">Guardar y cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/cart.js"></script>
+
+</body>
+
+
+</html>
+
+
+
+<!-- RESPALDO MODAL CON FORMULARIO
+ 
+---------------------------------MODAL FORMA DE PAGO--------------------------------------
 
 <div class="modal fade" id="ModalPago" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -153,10 +273,13 @@
         <h5 class="modal-title">Forma de pago</h5>
       </div>
       <div class="modal-body">
-        <form>
+
+  --------------------------FORMULARIO--------------------------
+
+        <form id="needs-validation" novalidate>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="inputEnvio" id="inputEnvio2" value="option2">
-            <label class="form-check-label" for="exampleRadios2">
+            <input class="form-check-input" type="radio" name="radios" value="" id="tarjetaDeCredito" required>
+            <label class="form-check-label">
               Tarjeta de crédito
             </label>
           </div>
@@ -165,24 +288,24 @@
             <div class="row">
               <div class="col-7">
             <label for="formGroupExampleInput">Número de tarjeta</label>
-            <input type="text" class="form-control" id="formGroupExampleInput">
+            <input type="number" class="form-control" id="numTarjeta" required>
           </div>
           <div class="col-4">
             <label for="formGroupExampleInput">CVV</label>
-            <input type="number" class="form-control" id="formGroupExampleInput">
+            <input type="number" class="form-control" id="CVV" required>
           </div>
           </div>
           <br>
           <div class="row">
             <div class="col-7">
               <label for="formGroupExampleInput">Vencimiento (MM/AA)</label>
-              <input type="text" class="form-control" id="formGroupExampleInput">
+              <input type="number" class="form-control" id="vencimiento" required> 
             </div>
             </div>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="inputEnvio" id="inputEnvio2" value="option2">
-            <label class="form-check-label" for="exampleRadios2">
+            <input class="form-check-input" type="radio" name="radios" id="transferenciaBancaria" value="" required>
+            <label class="form-check-label">
               Transferencia bancaria
             </label>
             </div>
@@ -190,23 +313,16 @@
             <div class="row">
               <div class="col-7">
             <label for="formGroupExampleInput">Número de cuenta</label>
-            <input type="text" class="form-control" id="formGroupExampleInput">
+            <input type="number" class="form-control" id="numCuenta" required>
           </div>
         </div>
-        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-light" data-dismiss="modal">Guardar y cerrar</button>
+        <button type="submit" class="btn btn-light" data-dismiss="modal">Guardar y cerrar</button>
       </div>
+    </form>
     </div>
   </div>
 </div>
-
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
-</body>
-
-</html>
+<br>
+-->
