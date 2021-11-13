@@ -21,7 +21,7 @@ for (let i = 0; i < productos.articles.length; i++) {
   <td><img src=${articulo.src} alt="" width="150px"></td>
   <td><h5>${articulo.name}</h5></td>
   <td><h5><input type="number" class="form-control cant" id="cantidad${i}" value="${articulo.count}" aria-label="" aria-describedby="basic-addon2" 
-  min="1" max="10" onchange="calcSubtotal(${articulo.unitCost}, ${i})"></h5></td>
+  min="0" max="10" onchange="calcSubtotal(${articulo.unitCost}, ${i})"></h5></td>
   <td><div class="row"><h5>${articulo.unitCost}</h5><h5>${articulo.currency}</h5></div></td>
   <td><div class="row"><h5 id="artSubtotal${i}" class="subtotal">${sub}</h5><h5>${articulo.currency}</h5></div></td>
 </tr>` 
@@ -138,6 +138,8 @@ document.addEventListener("change", function (e) {
 
 });
 
+///////////////// FUNCIONES DE VALIDACIÓN /////////////////
+
 function validarDireccion(){
 
   let pais = document.getElementById("pais");
@@ -197,10 +199,38 @@ function validarPagoSeleccionado(){
            document.getElementById("feedback").innerHTML= `<br>Faltan datos de la cuenta bancaria`
             }
 
-            else {
+            else if ((opcionTarjeta.checked) && (numTarjeta.value != "" || vencimiento.value != "" || CVV.value != "")){ 
+              document.getElementById("feedback").innerHTML= ``
               flag=true;
-            };
+              }
 
+              else if ((opcionTransferencia.checked) && (numCuenta.value != "")){ 
+                document.getElementById("feedback").innerHTML= ``
+                flag=true;
+                };
+                
+  return flag;
+};
+
+function validarCant(){ // ESTA ES LA QUE NO FUNCIONA
+
+  let cantidadProductos = document.getElementsByClassName("cant");
+  let flag = false;
+
+    for (i = 0; i < cantidadProductos.length; i++){
+      let producto = cantidadProductos[i]; 
+
+      if (producto.value < 1){
+        document.getElementById("alerta").innerHTML= `
+        <div class="alert alert-danger" role="alert">
+        <h5 class="alert-heading">Debes llevar al menos una unidad de cada producto</h5>
+        </div>`  
+        }
+       else if (producto.value >= 1){
+        document.getElementById("alerta").innerHTML= ""
+         flag = true;
+            }
+          };
   return flag;
 };
 
@@ -208,8 +238,9 @@ document.getElementById("botonComprar").addEventListener("click", function (e){
   validarDireccion();
   validarPago();
   validarPagoSeleccionado();
+  validarCant();
 
-  if ((validarDireccion()===true) && (validarPago()===true) && (validarPagoSeleccionado()===true)){
+  if ((validarDireccion()===true) && (validarPago()===true) && (validarPagoSeleccionado()===true) && (validarCant()===true)){
 
   document.getElementById("alerta").innerHTML= `
   <div class="alert alert-success" role="alert">
