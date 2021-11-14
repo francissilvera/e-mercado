@@ -2,7 +2,6 @@
     "articles": [
         {
             "name": "Pino de olor para el auto",
-            "id":0,
             "count": 2,
             "unitCost": 100,
             "currency": "UYU",
@@ -10,7 +9,6 @@
         },
 		{
             "name": "Suzuki Celerio",
-            "id":1,
             "count": 1,
             "unitCost": 12500,
             "currency": "USD",

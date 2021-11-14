@@ -4,7 +4,7 @@
 
 redirigirAlLogin();
 
-const CART_INFO = "https://japdevdep.github.io/ecommerce-api/cart/654.json"
+const CART_INFO = "https://francissilvera.github.io/e-mercado/js/cart.json"
 
 function mostrarCarrito(productos) {
 
@@ -17,22 +17,22 @@ for (let i = 0; i < productos.articles.length; i++) {
     let sub = articulo.unitCost * articulo.count
 
   contenido += `
-  <tr id=${articulo.id}>
+  <tr id="articulo${i}">
   <td><img src=${articulo.src} alt="" width="150px"></td>
   <td><h5>${articulo.name}</h5></td>
   <td><h5><input type="number" class="form-control cant" id="cantidad${i}" value="${articulo.count}" aria-label="" aria-describedby="basic-addon2" 
   min="0" max="10" onchange="calcSubtotal(${articulo.unitCost}, ${i})"></h5></td>
   <td><div class="row"><h5>${articulo.unitCost}</h5><h5>${articulo.currency}</h5></div></td>
   <td><div class="row"><h5 id="artSubtotal${i}" class="subtotal">${sub}</h5><h5>${articulo.currency}</h5></div></td>
-  <td><button class="btn btn-light"><img src="img/cerrar.png" width="10px" onclick="eliminarProducto(${i})"></button></td>
-</tr>` 
+  <td><button class="btn btn-light" onclick="eliminarProducto(${i})"><strong>X</strong></button></td>
+  </tr>` 
 
 document.getElementById("carrito").innerHTML = contenido;
 
 if (articulo.currency === "USD") {
   let element = document.getElementById(`artSubtotal${i}`)
   element.classList.add("dolares");
-};
+}
 };
 
 calcTotal();
@@ -251,8 +251,8 @@ document.getElementById("botonComprar").addEventListener("click", function (e){
   document.getElementById("alerta").innerHTML= `
   <div class="alert alert-success" role="alert">
   <h4 class="alert-heading">¡Has realizado tu compra con éxito!</h4>
-  <p>Ya puedes seguir navegando por nuestro sitio</p>
   <hr>
+  <p>Ya puedes seguir navegando por nuestro sitio</p>
   <button type="button" class="btn btn-light" onclick= window.location="products.html">Ver otros productos</button>
   </div>`
 
@@ -283,9 +283,20 @@ document.getElementById("validarPago").classList.remove("was-validated")
 ///////////////// ELIMINAR PRODUCTOS DE LA TABLA /////////////////
 
 function eliminarProducto(i){
-  if(productosCarrito.length > 1){
-    productosCarrito.splice(i,1);
+
+  if(productosCarrito.articles.length >= 1){
+    productosCarrito.articles.splice(i,1);
     document.getElementById(`articulo${i}`).remove();
     calcTotal();
   }
-};
+      if (productosCarrito.articles.length < 1){ 
+      document.getElementById("alerta").innerHTML= `
+      <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading">Su carrito está vacío</h4>
+      <hr>
+      <p>Continúa navegando por nuestro sitio para agregar productos a tu carrito</p>
+      <button type="button" class="btn btn-light" onclick= window.location="products.html">Ver más productos</button>
+      </div>`
+      document.getElementById("botonComprar").disabled=true;
+    }
+};   
