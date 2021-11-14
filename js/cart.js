@@ -212,10 +212,10 @@ function validarPagoSeleccionado(){
   return flag;
 };
 
-function validarCant(){ // ESTA ES LA QUE NO FUNCIONA
+function validarCant(){
 
   let cantidadProductos = document.getElementsByClassName("cant");
-  let flag = false;
+  let flag = true;
 
     for (i = 0; i < cantidadProductos.length; i++){
       let producto = cantidadProductos[i]; 
@@ -224,13 +224,16 @@ function validarCant(){ // ESTA ES LA QUE NO FUNCIONA
         document.getElementById("alerta").innerHTML= `
         <div class="alert alert-danger" role="alert">
         <h5 class="alert-heading">Debes llevar al menos una unidad de cada producto</h5>
-        </div>`  
+        </div>`
+        flag = false;  
+      
         }
-       else if (producto.value >= 1){
+      };
+  
+      if (flag != false){
         document.getElementById("alerta").innerHTML= ""
-         flag = true;
-            }
-          };
+      };
+
   return flag;
 };
 
@@ -273,97 +276,3 @@ document.getElementById("validarDireccion").classList.remove("was-validated")
 document.getElementById("validarPago").classList.remove("was-validated")
 };
 });
-
-
-/*
-function validarCampos () {
-
-  let pais = document.getElementById("pais");
-  let ciudad = document.getElementById("ciudad");
-  let calle = document.getElementById("calle");
-  let esquina = document.getElementById("esquina");
-  let numero = document.getElementById("numPuerta");
-
-  let opcionTarjeta = document.getElementById("tarjetaDeCredito");
-  let numTarjeta = document.getElementById("numTarjeta");
-  let vencimiento = document.getElementById("vencimiento");
-  let CVV = document.getElementById("CVV");
-
-  let opcionTransferencia = document.getElementById("transferenciaBancaria");
-  let numCuenta = document.getElementById("numCuenta");
-
-  // let cantidadProductos = document.getElementsByClassName("cant");
-  
-    
-    if (pais.value === "" || ciudad.value === "" || calle.value === "" || esquina.value === "" || numero.value === "") {
-        let divDireccion = document.getElementById("validarDireccion")
-        divDireccion.classList.add("was-validated")
-           }
-
-      else if (!opcionTransferencia.checked && !opcionTarjeta.checked){
-        document.getElementById("feedback").innerHTML= `<br>Debe seleccionar una forma de pago`
-         }
-
-        else if ((opcionTarjeta.checked) && (numTarjeta.value === "" || vencimiento.value === "" || CVV.value === "")){
-          let divPago = document.getElementById("validarPago")
-          divPago.classList.add("was-validated")
-          document.getElementById("feedback").innerHTML= `<br>Faltan datos de la tarjeta de crédito`
-            }
-
-             else if ((opcionTransferencia.checked) && (numCuenta.value === "")){
-               let divPago = document.getElementById("validarPago")
-               divPago.classList.add("was-validated")
-               document.getElementById("feedback").innerHTML= `<br>Faltan datos de la cuenta bancaria`
-                 }
-       else {
-            document.getElementById("alerta").innerHTML= `
-                <div class="alert alert-success" role="alert">
-                <h4 class="alert-heading">¡Has ralizado tu compra con éxito!</h4>
-                <p>Ya puedes seguir navegando por nuestro sitio</p>
-                <hr>
-                <button type="button" class="btn btn-light" onclick= window.location="products.html">Ver otros productos</button>
-                </div>`
-
-      document.getElementById("total").innerHTML = "";
-      document.getElementById("subtotal").innerHTML = "";
-      document.getElementById("totalEnvio").innerHTML = "";
-      document.getElementById("carrito").innerHTML = "";
-
-      document.getElementById("pais").value = "";
-      document.getElementById("ciudad").value = "";
-      document.getElementById("calle").value = "";
-      document.getElementById("esquina").value ="";
-      document.getElementById("numPuerta").value = "";
-
-      document.getElementById("tarjetaDeCredito").checked = false;
-      document.getElementById("numTarjeta").value = "";
-      document.getElementById("vencimiento").value = "";
-      document.getElementById("CVV").value = "";
-      document.getElementById("transferenciaBancaria").checked = false;
-      document.getElementById("numCuenta").value = "";
-
-      document.getElementById("feedback").innerHTML= "";
-      document.getElementById("validarDireccion").classList.remove("was-validated")
-      document.getElementById("validarPago").classList.remove("was-validated")
-  }
-};
-*/
-
-
-/* ///////////////// VALIDAR MODAL /////////////////
-
-                else if (cantidadProductos.value === ""){
-                  alert("debe completar la cantidad de productos") // esta es la que no funciona
-                 }
-
-let form = document.getElementById("needs-validation");
-
-form.addEventListener('submit', function(e){
-  if (form.checkValidity() === false){
-    e.preventDefault();
-    e.stopPropagation();
-  }
-  else
-  form.classList.add('was-validated');
-});
-*/
