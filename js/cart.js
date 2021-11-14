@@ -17,13 +17,14 @@ for (let i = 0; i < productos.articles.length; i++) {
     let sub = articulo.unitCost * articulo.count
 
   contenido += `
-  </tr>
+  <tr id=${articulo.id}>
   <td><img src=${articulo.src} alt="" width="150px"></td>
   <td><h5>${articulo.name}</h5></td>
   <td><h5><input type="number" class="form-control cant" id="cantidad${i}" value="${articulo.count}" aria-label="" aria-describedby="basic-addon2" 
   min="0" max="10" onchange="calcSubtotal(${articulo.unitCost}, ${i})"></h5></td>
   <td><div class="row"><h5>${articulo.unitCost}</h5><h5>${articulo.currency}</h5></div></td>
   <td><div class="row"><h5 id="artSubtotal${i}" class="subtotal">${sub}</h5><h5>${articulo.currency}</h5></div></td>
+  <td><button class="btn btn-light"><img src="img/cerrar.png" width="10px" onclick="eliminarProducto(${i})"></button></td>
 </tr>` 
 
 document.getElementById("carrito").innerHTML = contenido;
@@ -94,9 +95,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
             mostrarCarrito(productosCarrito);
             calcEnvio();
         }
-    }
-    )
+        
+    });
+    
 });
+
 
 let elements = document.getElementsByName("inputEnvio");
 for (var i=0; i < elements.length; i++) {
@@ -276,3 +279,13 @@ document.getElementById("validarDireccion").classList.remove("was-validated")
 document.getElementById("validarPago").classList.remove("was-validated")
 };
 });
+
+///////////////// ELIMINAR PRODUCTOS DE LA TABLA /////////////////
+
+function eliminarProducto(i){
+  if(productosCarrito.length > 1){
+    productosCarrito.splice(i,1);
+    document.getElementById(`articulo${i}`).remove();
+    calcTotal();
+  }
+};
