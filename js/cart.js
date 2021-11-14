@@ -280,7 +280,7 @@ document.getElementById("validarPago").classList.remove("was-validated")
 };
 });
 
-///////////////// ELIMINAR PRODUCTOS DE LA TABLA /////////////////
+///////////////// ELIMINAR PRODUCTOS DEL CARRITO /////////////////
 
 function eliminarProducto(i){
 
